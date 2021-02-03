@@ -8,7 +8,7 @@ import os
 import tqdm
 import random
 
-import config
+from training import config_tr
 
 
 class DataSet(object):
@@ -28,14 +28,14 @@ class DataSet(object):
 
         nombres_maximos = []
         for regla in DataSet.reglas:
-            if not os.path.exists(config.PATH_IMAGES + '/' + DataSet.train + '/' + regla):
-                os.makedirs(config.PATH_IMAGES + '/' + DataSet.train + '/' + regla)
+            if not os.path.exists(config_tr.PATH_IMAGES + '/' + DataSet.train + '/' + regla):
+                os.makedirs(config_tr.PATH_IMAGES + '/' + DataSet.train + '/' + regla)
 
-            if not os.path.exists(config.PATH_IMAGES + '/' + DataSet.val + '/' + regla):
-                os.makedirs(config.PATH_IMAGES + '/' + DataSet.val + '/' + regla)
+            if not os.path.exists(config_tr.PATH_IMAGES + '/' + DataSet.val + '/' + regla):
+                os.makedirs(config_tr.PATH_IMAGES + '/' + DataSet.val + '/' + regla)
 
-            lista_imagenes = os.listdir(config.PATH_IMAGES + '/' + DataSet.train + '/' + regla) + \
-                             os.listdir(config.PATH_IMAGES + '/' + DataSet.val + '/' + regla)
+            lista_imagenes = os.listdir(config_tr.PATH_IMAGES + '/' + DataSet.train + '/' + regla) + \
+                             os.listdir(config_tr.PATH_IMAGES + '/' + DataSet.val + '/' + regla)
             if len(lista_imagenes) == 0:
                 nombre_maximo = [0]
             else:
@@ -79,9 +79,9 @@ class DataSet(object):
             self.nombre_maximo += 1
             random_ = random.random()
             if random_ <= 1 - self.val_split:
-                image_PATH = config.PATH_IMAGES + '/' + DataSet.train + '/' + target + '/' + str(self.nombre_maximo) + '.' + DataSet.formato
+                image_PATH = config_tr.PATH_IMAGES + '/' + DataSet.train + '/' + target + '/' + str(self.nombre_maximo) + '.' + DataSet.formato
             else:
-                image_PATH = config.PATH_IMAGES + '/' + DataSet.val + '/' + target + '/' + str(self.nombre_maximo) + '.' + DataSet.formato
+                image_PATH = config_tr.PATH_IMAGES + '/' + DataSet.val + '/' + target + '/' + str(self.nombre_maximo) + '.' + DataSet.formato
             imagen.save(image_PATH, DataSet.formato)
 
 

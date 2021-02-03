@@ -7,3 +7,5 @@ data/val/saltar
 training/.ipynb_checkpoints
 
 .idea
+
+.vscode

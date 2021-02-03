@@ -8,7 +8,7 @@ import pyautogui
 import numpy as np
 import cv2
 import tensorflow as tf
-from training import config as config_tr
+from training import config_tr
 import config
 
 model = None
