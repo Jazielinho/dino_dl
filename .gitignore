@@ -1,8 +1,6 @@
-data/train/saltar
-data/train/nada
+data/val - Copy
 
-data/val/nada
-data/val/saltar
+data/train - Copy
 
 training/.ipynb_checkpoints
 
